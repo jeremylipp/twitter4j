@@ -80,7 +80,7 @@
                         <configuration>
                             <pomFile>twitter4j-async/pom.xml</pomFile>
                             <file>twitter4j-async/target/twitter4j-async-${project.version}.jar</file>
-                            <localRepositoryPath>/home/elinam/dev/depot</localRepositoryPath>
+                            <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
                     </execution>
@@ -94,7 +94,7 @@
                         <configuration>
                             <pomFile>twitter4j-core/pom.xml</pomFile>
                             <file>twitter4j-core/target/twitter4j-core-4.0.6-nk-0.jar</file>
-                            <localRepositoryPath>/home/elinam/dev/depot</localRepositoryPath>
+                            <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
                     </execution>
@@ -108,7 +108,7 @@
                         <configuration>
                             <pomFile>twitter4j-appengine/pom.xml</pomFile>
                             <file>twitter4j-appengine/target/twitter4j-appengine-${project.version}.jar</file>
-                            <localRepositoryPath>/home/elinam/dev/depot</localRepositoryPath>
+                            <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
                     </execution>
@@ -122,7 +122,7 @@
                         <configuration>
                             <pomFile>twitter4j-http2-support/pom.xml</pomFile>
                             <file>twitter4j-http2-support/target/twitter4j-http2-support-${project.version}.jar</file>
-                            <localRepositoryPath>/home/elinam/dev/depot</localRepositoryPath>
+                            <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
                     </execution>
@@ -136,7 +136,7 @@
                         <configuration>
                             <pomFile>twitter4j-stream/pom.xml</pomFile>
                             <file>twitter4j-stream/target/twitter4j-stream-${project.version}.jar</file>
-                            <localRepositoryPath>/home/elinam/dev/depot</localRepositoryPath>
+                            <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
                     </execution>
@@ -150,7 +150,7 @@
                         <configuration>
                             <pomFile>twitter4j-media-support/pom.xml</pomFile>
                             <file>twitter4j-media-support/target/twitter4j-media-support-${project.version}.jar</file>
-                            <localRepositoryPath>/home/elinam/dev/depot</localRepositoryPath>
+                            <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
                     </execution>
@@ -164,7 +164,7 @@
                         <configuration>
                             <pomFile>twitter4j-examples/pom.xml</pomFile>
                             <file>twitter4j-examples/target/twitter4j-examples-${project.version}.jar</file>
-                            <localRepositoryPath>/home/elinam/dev/depot</localRepositoryPath>
+                            <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
                     </execution>
