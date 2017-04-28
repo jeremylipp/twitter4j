@@ -181,7 +181,9 @@ public interface TweetsResources {
      * @since Twitter4J 4.0.3
      */
     UploadedMedia uploadMedia(String fileName, InputStream media) throws TwitterException;
-    
+
+    UploadedMedia uploadMediaChunked(String fileName, InputStream media, String mediaType) throws TwitterException;
+
     /**
      * Uploads media using chunked approach to be attached via {@link #updateStatus(twitter4j.StatusUpdate)}. 
      * This should be used for videos.

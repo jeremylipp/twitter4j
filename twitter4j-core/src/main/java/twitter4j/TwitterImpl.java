@@ -271,8 +271,14 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
                 , new HttpParameter("media", fileName, image)).asJSONObject());
     }
 
+    @Override
+    public UploadedMedia uploadMediaChunked(String fileName, InputStream media) throws TwitterException {
+        // Faire attention aux medias
+        return uploadMediaChunked(fileName, media, "video/mp4");
+    }
+
 	@Override
-	public UploadedMedia uploadMediaChunked(String fileName, InputStream media) throws TwitterException {
+	public UploadedMedia uploadMediaChunked(String fileName, InputStream media, String mediaType) throws TwitterException {
 		//If the InputStream is remote, this is will download it into memory speeding up the chunked upload process 
 		byte[] dataBytes = null;
 		try {
@@ -288,7 +294,7 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
 		
 		try {
 
-			UploadedMedia uploadedMedia = uploadMediaChunkedInit(dataBytes.length);
+			UploadedMedia uploadedMedia = uploadMediaChunkedInit(dataBytes.length, mediaType);
 			//no need to close ByteArrayInputStream
 			ByteArrayInputStream dataInputStream = new ByteArrayInputStream(dataBytes);
 			
@@ -316,10 +322,14 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
 	// "command=INIT&media_type=video/mp4&total_bytes=4430752"
     
     private UploadedMedia uploadMediaChunkedInit(long size) throws TwitterException {
+		return uploadMediaChunkedInit(size, "video/mp4");
+	}
+
+	private UploadedMedia uploadMediaChunkedInit(long size, String mediaType) throws TwitterException {
 		return new UploadedMedia(post(
 				conf.getUploadBaseURL() + "media/upload.json",
 				new HttpParameter[] { new HttpParameter("command", CHUNKED_INIT),
-						new HttpParameter("media_type", "video/mp4"), 
+						new HttpParameter("media_type", mediaType),
 						new HttpParameter("media_category", "tweet_video"),
 						new HttpParameter("total_bytes", size) })
 				.asJSONObject());
@@ -346,7 +356,7 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
 			tries++;
 			String state = uploadedMedia.getProcessingState();
 			if (state.equals("failed")) {
-				throw new TwitterException("Failed to finalize the chuncked upload.");
+				throw new TwitterException("Failed to finalize the chuncked upload.", uploadedMedia);
 			}
 			if (state.equals("pending") || state.equals("in_progress")) {
 				int waitSec = uploadedMedia.getProcessingCheckAfterSecs();
