@@ -46,6 +46,7 @@ public class TwitterException extends Exception implements TwitterResponse, Http
     public TwitterException(String message, UploadedMedia uploadedMediaInError) {
         this(message, (Throwable) null);
         errorCode = uploadedMediaInError.getProcessingErrorCode();
+        errorMessage = uploadedMediaInError.getProcessingErrorMessage();
     }
 
     public TwitterException(Exception cause) {
