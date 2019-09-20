@@ -17,20 +17,15 @@
 
 package twitter4j;
 
+import org.apache.commons.io.IOUtils;
 import twitter4j.api.*;
 import twitter4j.auth.Authorization;
 import twitter4j.conf.Configuration;
 
 import java.io.*;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-
-import org.apache.commons.io.IOUtils;
 
 import static twitter4j.HttpParameter.getParameterArray;
 
@@ -350,7 +345,7 @@ class TwitterImpl extends TwitterBaseImpl implements Twitter {
 
 	private UploadedMedia uploadMediaChunkedFinalize(long mediaId) throws TwitterException {
 		int tries = 0;
-		int maxWait = 10;
+		int maxWait = 180;
 		UploadedMedia uploadedMedia = uploadMediaChunkedFinalize0(mediaId);
 		while (tries < maxWait) {
 			tries++;

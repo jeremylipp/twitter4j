@@ -93,7 +93,7 @@
                         <phase>package</phase>
                         <configuration>
                             <pomFile>twitter4j-core/pom.xml</pomFile>
-                            <file>twitter4j-core/target/twitter4j-core-4.0.6-nk-0.jar</file>
+                            <file>twitter4j-core/target/twitter4j-core-4.0.6-nk-1.jar</file>
                             <localRepositoryPath>../limber-mvn-repo</localRepositoryPath>
                             <createChecksum>true</createChecksum>
                         </configuration>
